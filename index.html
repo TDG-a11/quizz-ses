@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz – Comment se forment les prix sur un marché ?</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f4f4; padding:20px; }
+    .container { max-width:800px; margin:auto; background:white; padding:20px; border-radius:8px; }
+    h1 { text-align:center; }
+    .question { margin-bottom:20px; }
+    button { padding:10px 15px; font-size:16px; cursor:pointer; }
+    .result { font-weight:bold; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz : Comment se forment les prix sur un marché ?</h1>
+
+    <form id="quiz">
+      <div class="question">
+        <p>1. Qu’est-ce qu’un marché ?</p>
+        <label><input type="radio" name="q1" value="0"> Un lieu obligatoirement physique</label><br>
+        <label><input type="radio" name="q1" value="1"> Un espace de rencontre entre une offre et une demande</label><br>
+        <label><input type="radio" name="q1" value="0"> Une entreprise</label>
+      </div>
+
+      <div class="question">
+        <p>2. Sur un marché concurrentiel, les acteurs sont :</p>
+        <label><input type="radio" name="q2" value="1"> Preneurs de prix</label><br>
+        <label><input type="radio" name="q2" value="0"> Fixeurs de prix</label><br>
+        <label><input type="radio" name="q2" value="0"> Absents du marché</label>
+      </div>
+
+      <div class="question">
+        <p>3. Quand le prix est trop bas, on observe :</p>
+        <label><input type="radio" name="q3" value="1"> Une pénurie</label><br>
+        <label><input type="radio" name="q3" value="0"> Une surproduction</label><br>
+        <label><input type="radio" name="q3" value="0"> Un équilibre</label>
+      </div>
+
+      <div class="question">
+        <p>4. Quand le prix est trop élevé, on observe :</p>
+        <label><input type="radio" name="q4" value="0"> Une pénurie</label><br>
+        <label><input type="radio" name="q4" value="1"> Une surproduction</label><br>
+        <label><input type="radio" name="q4" value="0"> Une augmentation de la demande</label>
+      </div>
+
+      <div class="question">
+        <p>5. Le prix d’équilibre correspond au moment où :</p>
+        <label><input type="radio" name="q5" value="1"> L’offre est égale à la demande</label><br>
+        <label><input type="radio" name="q5" value="0"> L’offre est supérieure à la demande</label><br>
+        <label><input type="radio" name="q5" value="0"> La demande disparaît</label>
+      </div>
+
+      <div class="question">
+        <p>6. Sur un graphique, la courbe de demande est :</p>
+        <label><input type="radio" name="q6" value="1"> Décroissante</label><br>
+        <label><input type="radio" name="q6" value="0"> Croissante</label><br>
+        <label><input type="radio" name="q6" value="0"> Horizontale</label>
+      </div>
+
+      <div class="question">
+        <p>7. L’instauration d’une taxe sur le producteur provoque :</p>
+        <label><input type="radio" name="q7" value="1"> Une baisse des quantités échangées</label><br>
+        <label><input type="radio" name="q7" value="0"> Une hausse de la demande</label><br>
+        <label><input type="radio" name="q7" value="0"> Une disparition du marché</label>
+      </div>
+
+      <div class="question">
+        <p>8. Une subvention au producteur entraîne :</p>
+        <label><input type="radio" name="q8" value="1"> Une augmentation de l’offre</label><br>
+        <label><input type="radio" name="q8" value="0"> Une diminution de l’offre</label><br>
+        <label><input type="radio" name="q8" value="0"> Une hausse du prix d’équilibre</label>
+      </div>
+
+      <button type="button" onclick="corriger()">Valider</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function corriger() {
+      let score = 0;
+      const total = 8;
+      const form = document.getElementById('quiz');
+      const data = new FormData(form);
+      for (let value of data.values()) {
+        score += Number(value);
+      }
+      document.getElementById('result').textContent = "Score : " + score + " / " + total;
+    }
+  </script>
+</body>
+</html>
